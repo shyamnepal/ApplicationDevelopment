@@ -8,37 +8,37 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = dvdrentalweb
 build_property.RootNamespace = dvdrentalweb
-build_property.ProjectDir = C:\Users\Shyam\source\repos\dvdrental\dvdrentalweb\
+build_property.ProjectDir = E:\Application_CW\ApplicationDevelopment\dvdrentalweb\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Shyam\source\repos\dvdrental\dvdrentalweb
+build_property.MSBuildProjectDirectory = E:\Application_CW\ApplicationDevelopment\dvdrentalweb
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Shyam/source/repos/dvdrental/dvdrentalweb/Views/Home/Index.cshtml]
+[E:/Application_CW/ApplicationDevelopment/dvdrentalweb/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Shyam/source/repos/dvdrental/dvdrentalweb/Views/Home/Privacy.cshtml]
+[E:/Application_CW/ApplicationDevelopment/dvdrentalweb/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Shyam/source/repos/dvdrental/dvdrentalweb/Views/Shared/Error.cshtml]
+[E:/Application_CW/ApplicationDevelopment/dvdrentalweb/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Shyam/source/repos/dvdrental/dvdrentalweb/Views/Shared/_ValidationScriptsPartial.cshtml]
+[E:/Application_CW/ApplicationDevelopment/dvdrentalweb/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Shyam/source/repos/dvdrental/dvdrentalweb/Views/_ViewImports.cshtml]
+[E:/Application_CW/ApplicationDevelopment/dvdrentalweb/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Shyam/source/repos/dvdrental/dvdrentalweb/Views/_ViewStart.cshtml]
+[E:/Application_CW/ApplicationDevelopment/dvdrentalweb/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Shyam/source/repos/dvdrental/dvdrentalweb/Views/Shared/_Layout.cshtml]
+[E:/Application_CW/ApplicationDevelopment/dvdrentalweb/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-swa547b5xo
