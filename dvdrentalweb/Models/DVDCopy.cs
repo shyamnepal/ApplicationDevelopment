@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace dvdrentalweb.Models
 {
@@ -6,6 +7,7 @@ namespace dvdrentalweb.Models
     {
         [Key]
         public int CopyNumber { get; set; }
+        [ForeignKey("DVDNumber")]
         public String DVDNumber { get; set; }
         public DateTime DatePurchase{ get; set; }
         
