@@ -1938,19 +1938,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {}
+    "C:\\Users\\Shyam\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Application_CW\\ApplicationDevelopment\\dvdrentalweb\\dvdrentalweb.csproj",
+      "projectUniqueName": "C:\\Users\\Shyam\\source\\repos\\dvdrental\\dvdrentalweb\\dvdrentalweb.csproj",
       "projectName": "dvdrentalweb",
-      "projectPath": "E:\\Application_CW\\ApplicationDevelopment\\dvdrentalweb\\dvdrentalweb.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "E:\\Application_CW\\ApplicationDevelopment\\dvdrentalweb\\obj\\",
+      "projectPath": "C:\\Users\\Shyam\\source\\repos\\dvdrental\\dvdrentalweb\\dvdrentalweb.csproj",
+      "packagesPath": "C:\\Users\\Shyam\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Shyam\\source\\repos\\dvdrental\\dvdrentalweb\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Shyam\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2019,7 +2019,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
