@@ -17,5 +17,15 @@ namespace dvdrentalweb.Models
         public DateTime DateReleased { get; set; }
         public double StandardCharge { get; set; }
         public double PenaltyCharge { get; set; }
+
+        [NotMapped]
+        public string ProducerName { get; set; }
+        [NotMapped]
+        public string StudioName { get; set; }
+        [NotMapped]
+        public string ActorSurname { get; set; }
+        [NotMapped]
+        public string ActorFirstName { get; set; }
+
     }
 }

@@ -15,12 +15,36 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Shyam\source\repos\dvdrental\dvdrentalweb
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Shyam/source/repos/dvdrental/dvdrentalweb/Views/Actor/ActorList_01.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0b3JcQWN0b3JMaXN0XzAxLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shyam/source/repos/dvdrental/dvdrentalweb/Views/Actor/ActorList_02.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0b3JcQWN0b3JMaXN0XzAyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shyam/source/repos/dvdrental/dvdrentalweb/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shyam/source/repos/dvdrental/dvdrentalweb/Views/DVDTitle/DVDTitleList_04.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRFZEVGl0bGVcRFZEVGl0bGVMaXN0XzA0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Shyam/source/repos/dvdrental/dvdrentalweb/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Shyam/source/repos/dvdrental/dvdrentalweb/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shyam/source/repos/dvdrental/dvdrentalweb/Views/Loan/LoanList_05.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9hblxMb2FuTGlzdF8wNS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shyam/source/repos/dvdrental/dvdrentalweb/Views/Member/MemberList_03.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyXE1lbWJlckxpc3RfMDMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Shyam/source/repos/dvdrental/dvdrentalweb/Views/Shared/Error.cshtml]

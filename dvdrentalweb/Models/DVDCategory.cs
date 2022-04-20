@@ -7,7 +7,7 @@ namespace dvdrentalweb.Models
         [Key]
         public int CategoryNumber { get; set; }
         public String CategoryDescription { get; set; }
-        public String AgeRestricted { get; set; }
+        public Boolean AgeRestricted { get; set; }
         
     }
 }

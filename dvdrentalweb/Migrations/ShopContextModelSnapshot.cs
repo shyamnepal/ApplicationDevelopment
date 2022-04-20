@@ -62,6 +62,27 @@ namespace dvdrentalweb.Migrations
                     b.ToTable("CastMembers");
                 });
 
+            modelBuilder.Entity("dvdrentalweb.Models.DVDCategory", b =>
+                {
+                    b.Property<int>("CategoryNumber")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryNumber"), 1L, 1);
+
+                    b.Property<string>("AgeRestricted")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CategoryDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("CategoryNumber");
+
+                    b.ToTable("DVDCategory");
+                });
+
             modelBuilder.Entity("dvdrentalweb.Models.DVDCopy", b =>
                 {
                     b.Property<int>("CopyNumber")
