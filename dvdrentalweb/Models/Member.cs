@@ -13,6 +13,12 @@ namespace dvdrentalweb.Models
         public String MemberFirstName { get; set; }
         public String MemberAddress { get; set; }
         public DateTime MemberDateOfBirth { get; set; }
-        
+
+        [NotMapped]
+        public DateTime DateOut { get; set; }
+        [NotMapped]
+        public DateTime DateReturned { get; set; }
+        [NotMapped]
+        public string DVDTitle { get; set; }        
     }
 }

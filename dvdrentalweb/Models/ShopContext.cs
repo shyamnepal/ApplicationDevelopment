@@ -7,11 +7,7 @@ namespace dvdrentalweb.Models
     public class ShopContext : DbContext
     {
 
-        //public ShopContext() : base()
-        //{
-        //    Database.EnsureCreated();
-        //}
-
+        public DbSet<DVDCategory> DVDCategory { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Actor> Actors{ get; set; }
         public DbSet<CastMember> CastMembers { get; set; }

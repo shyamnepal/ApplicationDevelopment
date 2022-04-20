@@ -18,6 +18,12 @@ namespace dvdrentalweb.Controllers
             return View();
         }
 
+        public IActionResult DVDCopiesByActor_01()
+        {
+            // Add and return query
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

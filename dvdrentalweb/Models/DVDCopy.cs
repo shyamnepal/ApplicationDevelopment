@@ -8,7 +8,7 @@ namespace dvdrentalweb.Models
         [Key]
         public int CopyNumber { get; set; }
         [ForeignKey("DVDNumber")]
-        public String DVDNumber { get; set; }
+        public int DVDNumber { get; set; }
         public DateTime DatePurchase{ get; set; }
         
     }
