@@ -21,7 +21,7 @@ namespace dvdrentalweb.Controllers
         {
             try
             {
-                
+
                 var memberList_01 = (from a in _db.Loans
                                      join b in _db.Members
                                      on a.MemberNumber equals b.MemberNumber
@@ -29,7 +29,7 @@ namespace dvdrentalweb.Controllers
                                      on a.CopyNumber equals c.CopyNumber
                                      join d in _db.DVDTitles
                                      on c.DVDNumber equals d.DVDNumber
-                                     where a.DateOut !>= DateTime.Now.AddDays(-31)
+                                     where a.DateOut >= DateTime.Now.AddDays(-31) 
 
 
                                      select new Member
@@ -40,12 +40,13 @@ namespace dvdrentalweb.Controllers
                                          MemberFirstName = b.MemberFirstName,
                                          MemberAddress = b.MemberAddress,
                                          MemberDateOfBirth = b.MemberDateOfBirth,
-                                         DateOut = a.DateOut,
+                                         DateOut = (DateTime)a.DateOut,
                                          DVDTitle = d.DvdTitle,
-                                         DateReturned = a.DateReturned
-                                     }); 
+                                         DateReturned = a.DateReturned ?? DateTime.MinValue,
+                                         DateDue = (DateTime)a.DateDue
+                                     }) ; 
         
-
+           
         var memberListToList = memberList_01.ToList();
                 if (SearchText != null && SearchText != "")
                 {
@@ -53,6 +54,49 @@ namespace dvdrentalweb.Controllers
                         Where(b => b.MemberLastNamae.Contains(SearchText)
                         ).ToList();
                 }
+                return View(memberListToList);
+            }
+            catch (Exception ex)
+            {
+                return View();
+            }
+
+        }
+
+        public IActionResult MemberList_08()
+        {
+            try
+            {
+                var memberList_08 = (from a in _db.Members
+                                     join b in _db.Loans
+                                     on a.MemberNumber equals b.MemberNumber
+                                     join c in _db.MembershipCategories
+                                     on a.MembershipCategoryNumber equals c.MembershipCategoryNumber
+                                     group b by a.MemberNumber into d   
+                                     orderby d.Count() descending 
+
+                                     select new Member
+                                     {
+                                         MemberNumber = a.MemberNumber,
+                                         MemberFirstName = a.MemberFirstName,
+                                         MemberLastNamae = a.MemberLastNamae,
+                                         MemberAddress = a.MemberAddress,
+                                         MemberDateOfBirth = a.MemberDateOfBirth,
+                                         MembershipCategoryNumber = a.MembershipCategoryNumber,
+                                         TotalLoans = d.Count(),
+                                     });
+
+                from player in players
+                group player by player.Team into playerGroup
+                select new
+                {
+                    Team = playerGroup.Key,
+                    Count = playerGroup.Count(),
+                };
+
+
+
+                var memberListToList = memberList_08.ToList();
                 return View(memberListToList);
             }
             catch (Exception ex)

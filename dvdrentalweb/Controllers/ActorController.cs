@@ -60,7 +60,7 @@ namespace dvdrentalweb.Controllers
                                     on c.DVDNumber equals d.DVDNumber
                                     join e in _db.Loans
                                     on d.CopyNumber equals e.CopyNumber
-                                    where e.DateReturned != DateTime.MinValue
+                                    where e.DateReturned != null
 
                                     select new Actor
                                     {
@@ -69,7 +69,7 @@ namespace dvdrentalweb.Controllers
                                         ActorFirstName = a.ActorFirstName,
                                         DVDTitle = c.DvdTitle,
                                         CopyNumber = d.CopyNumber,
-                                        DateReturned = e.DateReturned
+                                        DateReturned = (DateTime)e.DateReturned
                                     });
                 var actorListToList = actorList_02.ToList();
                 if (SearchText != null && SearchText != "")

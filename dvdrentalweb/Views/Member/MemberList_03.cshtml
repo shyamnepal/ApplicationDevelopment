@@ -31,7 +31,9 @@
             <th>
                Date Returned
             </th>
-            <th></th>
+            <th>
+               Date Due
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -46,8 +48,21 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.DateOut)
                     </td>
+                    @if(item.DateReturned == DateTime.MinValue)
+                    {
+                        <td>
+                            Not Returned
+                        </td>
+                    } 
+                    @if(item.DateReturned != DateTime.MinValue)
+                    {
+                        <td>
+                            @item.DateReturned                            
+                        </td>
+                    
+                    }
                     <td>
-                        @Html.DisplayFor(modelItem => item.DateReturned)
+                        @item.DateDue
                     </td>
                 </tr>
         }
