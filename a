@@ -1,0 +1,42 @@
+[33mcommit 5df1665a173372dc1f2bc7d98f1d4557de7c21c2[m[33m ([m[1;36mHEAD -> [m[1;32mHomePage[m[33m)[m
+Author: Samizen <samitpdl@gmail.com>
+Date:   Sat Apr 23 19:20:47 2022 +0545
+
+    Before Authentication
+
+[33mcommit c59543debf8faa24f2435386b5ed98d61d1ff9f9[m[33m ([m[1;31morigin/HomePage[m[33m)[m
+Author: Samizen <samitpdl@gmail.com>
+Date:   Wed Apr 20 07:09:42 2022 +0545
+
+    Add homepage and admin upto no 5
+
+[33mcommit bcfe12ae660934810fac5de2c530ed049440245c[m
+Author: Samizen <samitpdl@gmail.com>
+Date:   Sun Apr 17 11:53:55 2022 +0545
+
+    asasa
+
+[33mcommit dacbaf300a514187c9cdfd67c55ea20fac7bb62b[m[33m ([m[1;31morigin/development[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mdevelopment[m[33m)[m
+Merge: 3caf058 d9aaca7
+Author: Samizen <samitpdl@gmail.com>
+Date:   Sat Apr 16 17:06:33 2022 +0545
+
+    Conflict merge
+
+[33mcommit 3caf058ac6845121450fa73ec151baacccf95ebd[m
+Author: Samizen <samitpdl@gmail.com>
+Date:   Sat Apr 16 17:05:14 2022 +0545
+
+    Added Foreign Keys to the Tables in development branch
+
+[33mcommit d9aaca743b374ef8a0a6c041ca9d98c2df59eeaa[m[33m ([m[1;31morigin/ForeignKeys[m[33m, [m[1;32mForeignKeys[m[33m)[m
+Author: Samizen <samitpdl@gmail.com>
+Date:   Sat Apr 16 16:52:50 2022 +0545
+
+    Added foreign keys to the table
+
+[33mcommit 92df888309ee5f388969a0779102cb19f1e832a1[m
+Author: shyamnepal <shyamnepal595@gmail.com>
+Date:   Wed Apr 13 21:34:06 2022 +0545
+
+    initial commit

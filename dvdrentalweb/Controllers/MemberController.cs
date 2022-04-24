@@ -72,8 +72,7 @@ namespace dvdrentalweb.Controllers
                                      on a.MemberNumber equals b.MemberNumber
                                      join c in _db.MembershipCategories
                                      on a.MembershipCategoryNumber equals c.MembershipCategoryNumber
-                                     group b by a.MemberNumber into d   
-                                     orderby d.Count() descending 
+                                     
 
                                      select new Member
                                      {
@@ -83,18 +82,8 @@ namespace dvdrentalweb.Controllers
                                          MemberAddress = a.MemberAddress,
                                          MemberDateOfBirth = a.MemberDateOfBirth,
                                          MembershipCategoryNumber = a.MembershipCategoryNumber,
-                                         TotalLoans = d.Count(),
+                                         
                                      });
-
-                from player in players
-                group player by player.Team into playerGroup
-                select new
-                {
-                    Team = playerGroup.Key,
-                    Count = playerGroup.Count(),
-                };
-
-
 
                 var memberListToList = memberList_08.ToList();
                 return View(memberListToList);

@@ -1,4 +1,5 @@
 ﻿using dvdrentalweb.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace dvdrentalweb.Controllers
@@ -11,6 +12,7 @@ namespace dvdrentalweb.Controllers
         {
             _db = db;
         }
+        [Authorize]
         public IActionResult Index()
         {
             return View();
