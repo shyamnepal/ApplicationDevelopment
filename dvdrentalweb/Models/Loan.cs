@@ -39,6 +39,8 @@ namespace dvdrentalweb.Models
         public double PenaltyCharge { get; set; }
         [NotMapped]
         public int AgeRestricted { get; set; }
+        [NotMapped]
+        public int MembershipCategoryTotalLoans { get; set; }
 
     }
 }

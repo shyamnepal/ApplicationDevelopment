@@ -55,6 +55,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/Application_CW/ApplicationDevelopment/dvdrentalweb/Views/DVDCopy/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRFZEQ29weVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Application_CW/ApplicationDevelopment/dvdrentalweb/Views/DVDCopy/DVDCopyList_10.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRFZEQ29weVxEVkRDb3B5TGlzdF8xMC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/Application_CW/ApplicationDevelopment/dvdrentalweb/Views/DVDTitle/DVDTitleList_04.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRFZEVGl0bGVcRFZEVGl0bGVMaXN0XzA0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -73,6 +81,18 @@ build_metadata.AdditionalFiles.CssScope =
 
 [E:/Application_CW/ApplicationDevelopment/dvdrentalweb/Views/Loan/LoanList_06.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9hblxMb2FuTGlzdF8wNi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Application_CW/ApplicationDevelopment/dvdrentalweb/Views/Loan/LoanList_11.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9hblxMb2FuTGlzdF8xMS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Application_CW/ApplicationDevelopment/dvdrentalweb/Views/Loan/LoanList_12.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9hblxMb2FuTGlzdF8xMi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Application_CW/ApplicationDevelopment/dvdrentalweb/Views/Loan/LoanList_13.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9hblxMb2FuTGlzdF8xMy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/Application_CW/ApplicationDevelopment/dvdrentalweb/Views/Member/MemberList_03.cshtml]
