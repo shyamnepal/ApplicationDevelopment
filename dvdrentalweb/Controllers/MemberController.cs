@@ -67,25 +67,17 @@ namespace dvdrentalweb.Controllers
         {
             try
             {
-                var memberList_08 = (from a in _db.Members
-                                     join b in _db.Loans
-                                     on a.MemberNumber equals b.MemberNumber
-                                     join c in _db.MembershipCategories
-                                     on a.MembershipCategoryNumber equals c.MembershipCategoryNumber
-                                     
+                var groupByMemberNumber = from a in _db.Members
+                                          join b in _db.Loans
+                                          on a.MemberNumber equals b.MemberNumber
+                                          join c in _db.MembershipCategories
+                                          on a.MembershipCategoryNumber equals c.MembershipCategoryNumber
+                                          where a.DateReturned == null
+                                          group a by a.MemberFirstName into m
+                                          orderby m.Key                                          
+                                          select m;
 
-                                     select new Member
-                                     {
-                                         MemberNumber = a.MemberNumber,
-                                         MemberFirstName = a.MemberFirstName,
-                                         MemberLastNamae = a.MemberLastNamae,
-                                         MemberAddress = a.MemberAddress,
-                                         MemberDateOfBirth = a.MemberDateOfBirth,
-                                         MembershipCategoryNumber = a.MembershipCategoryNumber,
-                                         
-                                     });
-
-                var memberListToList = memberList_08.ToList();
+                var memberListToList = groupByMemberNumber.ToList();
                 return View(memberListToList);
             }
             catch (Exception ex)
