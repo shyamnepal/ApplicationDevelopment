@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace dvdrentalweb.Controllers
 {
+    [Authorize (Roles = "Assistant")]
     public class AdminController : Controller
     {
         private readonly ShopContext _db;

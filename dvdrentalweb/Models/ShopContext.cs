@@ -28,6 +28,6 @@ namespace dvdrentalweb.Models
         public DbSet<Producer> Producers{ get; set; }
         public DbSet<Studio> Studios { get; set; }
 
-         
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
     }
 }

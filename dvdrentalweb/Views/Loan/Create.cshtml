@@ -1,0 +1,39 @@
+﻿@model Loan
+
+<form method="post" asp-action="DeletePOST">
+	<input asp-for="LoanNumber" hidden />
+	<div class="border p-3 mt-4">
+		<div class="row pb-2">
+			<h2 class="text-primary">Issue the DVD</h2>
+			<hr />
+		</div>
+		<div class="mb-3">
+			<!--Loan Type Number-->
+			<select class="form-select" asp-for="LoanTypeNumber" asp-items="@(new SelectList(ViewBag.loanType,"LoanTypeNumber","Loantype"))"></select>
+		</div>
+		<div class="mb-3">
+			<label asp-for="DVDTitle"></label>
+			<select class="form-select" asp-for="LoanTypeNumber" asp-items="@(new SelectList(ViewBag.dvdTitle,"DVDNumber","DvdTitle"))"></select>
+		</div>
+		<div class="mb-3">
+			<label asp-for="CopyNumber"></label>
+			<input asp-for="CopyNumber" class="form-control" />
+		</div>
+		<div class="mb-3">
+			<label asp-for="MemberNumber"></label>
+			<input asp-for="MemberNumber" disabled class="form-control"/>
+		</div>
+		<div class="mb-3">
+			<label asp-for="DateDue"></label>
+			<input asp-for="DateDue" disabled class="form-control" />
+		</div>
+		<div class="mb-3">
+			<label asp-for="StandardCharge"></label>
+			<input asp-for="StandardCharge" disabled class="form-control"/>
+		</div>
+		<button type="submit" class="btn btn-primary" style="width:150px">Issue</button>
+		<a asp-controller="Actor" asp-action="ActorList_02" class="btn btn-secondary" style="width:150px">
+			Back to List
+		</a>
+	</div>
+</form>

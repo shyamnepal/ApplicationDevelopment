@@ -1,5 +1,7 @@
 ﻿using dvdrentalweb.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Data;
 
 namespace dvdrentalweb.Controllers
 {
@@ -11,6 +13,7 @@ namespace dvdrentalweb.Controllers
         {
             _db = db;
         }
+
 
         public IActionResult LoanList_05(string SearchText = "")
         {
@@ -39,11 +42,11 @@ namespace dvdrentalweb.Controllers
                                    });
 
                 var loanListToList = loanList_01.ToList();
-                //if (SearchText != null && SearchText != "")
-                //{
-                //    loanListToList = loanList_01.
-                //        Where(a => a.MemberNumber == int.Parse(SearchText)).ToList();
-                //}
+                if (SearchText != null && SearchText != "")
+                {
+                    loanListToList = loanList_01.
+                        Where(a => a.MemberNumber == int.Parse(SearchText)).ToList();
+                }
                 return View(loanListToList);
             }
             catch (Exception ex)
@@ -51,21 +54,103 @@ namespace dvdrentalweb.Controllers
                 return View();
             }
         }
-        public IActionResult LoanList_06()
+        
+        public IActionResult Index()
+        {
+            var loanList_01 = (from a in _db.Loans
+                               join b in _db.LoanTypes
+                               on a.LoanTypeNumber equals b.LoanTypeNumber
+                               join c in _db.Members
+                               on a.MemberNumber equals c.MemberNumber
+                               join d in _db.DVDCopys
+                               on a.CopyNumber equals d.CopyNumber
+                               join e in _db.DVDTitles
+                               on d.DVDNumber equals e.DVDNumber
+                               join f in _db.DVDCategory
+                               on e.CategoryNumber equals f.CategoryNumber
+                               join g in _db.MembershipCategories
+                               on c.MembershipCategoryNumber equals g.MembershipCategoryNumber
+
+                               select new Loan
+                               {
+                                   LoanNumber = a.LoanNumber,
+                                   LoanTypeNumber = a.LoanTypeNumber,
+                                   CopyNumber = a.CopyNumber,
+                                   MemberNumber = a.MemberNumber,
+                                   MemberFirstName = c.MemberFirstName,
+                                   MemberLastName = c.MemberLastNamae,
+                                   DateOut = a.DateOut,
+                                   DateDue = a.DateDue,
+                                   DateReturned = a.DateReturned,
+                                   LoanType = b.Loantype,
+                                   DVDTitle = e.DvdTitle,
+                                   StandardCharge = e.StandardCharge,
+                                   PenaltyCharge = e.PenaltyCharge,
+                                   AgeRestricted = f.AgeRestricted,
+                                   MemberDateOfBirth = c.MemberDateOfBirth,
+                                   MembershipCategoryTotalLoans = g.MembershipCategoryTotalLoans
+                               }).ToList();
+            return View(loanList_01);
+        }
+
+        //GET
+        public IActionResult Update(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            var loansFromDb = _db.Loans.Find(id);
+            //var loansFromDbFirst = _db.Categories.FirstOrDefault(u=>u.Id==id);
+            //var loansFromDbSingle = _db.Categories.SingleOrDefault(u => u.Id == id);
+
+            if (loansFromDb == null)
+            {
+                return NotFound();
+            }
+
+            return View(loansFromDb);
+        }
+
+        //POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Update(Loan obj)
+        {
+            ModelState.Remove("LoanType");
+            ModelState.Remove("DVDTitle");
+            ModelState.Remove("MemberAddress");
+            ModelState.Remove("MemberLastName");
+            ModelState.Remove("MemberFirstName");
+            if (ModelState.IsValid)
+            {
+                _db.Loans.Update(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(obj);
+        }
+
+
+
+        //GET
+        public IActionResult Create()
         {
             try
             {
                 var loanList_01 = (from a in _db.Loans
-                                   join b in _db.DVDCopys
-                                   on a.CopyNumber equals b.CopyNumber
-                                   join c in _db.DVDTitles
-                                   on b.DVDNumber equals c.DVDNumber
-                                   join d in _db.Members
-                                   on a.MemberNumber equals d.MemberNumber
-                                   join e in _db.LoanTypes
-                                   on a.LoanTypeNumber equals e.LoanTypeNumber
+                                   join b in _db.LoanTypes
+                                   on a.LoanTypeNumber equals b.LoanTypeNumber
+                                   join c in _db.Members
+                                   on a.MemberNumber equals c.MemberNumber
+                                   join d in _db.DVDCopys
+                                   on a.CopyNumber equals d.CopyNumber
+                                   join e in _db.DVDTitles
+                                   on d.DVDNumber equals e.DVDNumber
                                    join f in _db.DVDCategory
-                                   on c.CategoryNumber equals f.CategoryNumber
+                                   on e.CategoryNumber equals f.CategoryNumber
+                                   join g in _db.MembershipCategories
+                                   on c.MembershipCategoryNumber equals g.MembershipCategoryNumber
 
                                    select new Loan
                                    {
@@ -73,23 +158,69 @@ namespace dvdrentalweb.Controllers
                                        LoanTypeNumber = a.LoanTypeNumber,
                                        CopyNumber = a.CopyNumber,
                                        MemberNumber = a.MemberNumber,
-                                       DateOut = (DateTime)a.DateOut,
-                                       DateDue = (DateTime)a.DateDue,
-                                       //DateReturned = a.DateReturned ?? DateTime.MinValue,
-                                       DVDTitle = c.DvdTitle,
-                                       MemberFirstName = d.MemberFirstName,
-                                       MemberLastName = d.MemberLastNamae,
-                                       MemberDateOfBirth = d.MemberDateOfBirth,
-                                       MemberAddress = d.MemberAddress,
-                                       LoanType = e.Loantype,
-                                       LoanDuration = e.LoanDuration,
-                                       DVDNumber = b.DVDNumber,
-                                       StandardCharge = c.StandardCharge,
-                                       PenaltyCharge = c.PenaltyCharge,
+                                       DateOut = a.DateOut,
+                                       DateDue = a.DateDue,
+                                       DateReturned = a.DateReturned,
+                                       LoanType = b.Loantype,
+                                       DVDTitle = e.DvdTitle,
+                                       StandardCharge = e.StandardCharge,
                                        AgeRestricted = f.AgeRestricted,
+                                       MemberDateOfBirth = c.MemberDateOfBirth,
+                                       MembershipCategoryTotalLoans = g.MembershipCategoryTotalLoans
                                    }).ToList();
 
+                List<LoanType> loanTypeList = new List<LoanType>();
+                loanTypeList = (from lt in _db.LoanTypes select lt).ToList();
+                loanTypeList.Insert(0, new LoanType { LoanTypeNumber = 0, Loantype = "--Select Loan Type--" });
+                ViewBag.loanType = loanTypeList;
+
+                List<DVDTitle> dvdTitleList = new List<DVDTitle>();
+                dvdTitleList = (from dt in _db.DVDTitles select dt).ToList();
+                dvdTitleList.Insert(0, new DVDTitle { DVDNumber = 0, DvdTitle = "--Select DVD Title--" });
+                ViewBag.dvdTitle = dvdTitleList;
+
+                List<Member> memberList = new List<Member>();
+                memberList = (from dt in _db.Members select dt).ToList();
+                memberList.Insert(0, new Member { MemberNumber = 0, MemberFirstName= "--Select Member First Name--" });
+                ViewBag.member = memberList;
+
                 return View();
+
+            }
+            catch (Exception ex)
+            {
+                return View();
+            }
+        }
+
+
+
+        public IActionResult LoanList_07()
+        {
+            try
+            {
+                var loanList_01 = (from a in _db.Loans
+                                   join b in _db.Members
+                                   on a.MemberNumber equals b.MemberNumber
+                                   join c in _db.DVDCopys
+                                   on a.CopyNumber equals c.CopyNumber
+                                   join d in _db.DVDTitles
+                                   on c.DVDNumber equals d.DVDNumber                                  
+
+                                   select new Loan
+                                   {
+                                       LoanNumber = a.LoanNumber,
+                                       LoanTypeNumber = a.LoanTypeNumber,
+                                       CopyNumber = a.CopyNumber,
+                                       MemberNumber = a.MemberNumber,
+                                       DateOut = a.DateOut,
+                                       DateDue = a.DateDue,
+                                       DateReturned = a.DateReturned,
+                                       DVDTitle = d.DvdTitle,
+                                       PenaltyCharge = d.PenaltyCharge                                       
+                                   }).ToList();        
+                
+                return View(loanList_01);
             }
             catch (Exception ex)
             {

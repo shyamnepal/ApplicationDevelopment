@@ -11,7 +11,7 @@ build_property.RootNamespace = dvdrentalweb
 build_property.ProjectDir = E:\Application_CW\ApplicationDevelopment\dvdrentalweb\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
-build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = E:\Application_CW\ApplicationDevelopment\dvdrentalweb
 build_property._RazorSourceGeneratorDebug = 
 
@@ -25,6 +25,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [E:/Application_CW/ApplicationDevelopment/dvdrentalweb/Areas/Identity/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Application_CW/ApplicationDevelopment/dvdrentalweb/Areas/Identity/Pages/Account/ResetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/Application_CW/ApplicationDevelopment/dvdrentalweb/Areas/Identity/Pages/Account/_ViewImports.cshtml]
@@ -75,12 +79,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Application_CW/ApplicationDevelopment/dvdrentalweb/Views/Loan/LoanList_05.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9hblxMb2FuTGlzdF8wNS5jc2h0bWw=
+[E:/Application_CW/ApplicationDevelopment/dvdrentalweb/Views/Loan/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9hblxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Application_CW/ApplicationDevelopment/dvdrentalweb/Views/Loan/LoanList_06.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9hblxMb2FuTGlzdF8wNi5jc2h0bWw=
+[E:/Application_CW/ApplicationDevelopment/dvdrentalweb/Views/Loan/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9hblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Application_CW/ApplicationDevelopment/dvdrentalweb/Views/Loan/LoanList_05.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9hblxMb2FuTGlzdF8wNS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/Application_CW/ApplicationDevelopment/dvdrentalweb/Views/Loan/LoanList_11.cshtml]
@@ -93,6 +101,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [E:/Application_CW/ApplicationDevelopment/dvdrentalweb/Views/Loan/LoanList_13.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9hblxMb2FuTGlzdF8xMy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Application_CW/ApplicationDevelopment/dvdrentalweb/Views/Loan/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9hblxVcGRhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/Application_CW/ApplicationDevelopment/dvdrentalweb/Views/Member/MemberList_03.cshtml]

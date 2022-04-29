@@ -45,6 +45,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.CopyNumber)
             </td>
+            <td>
+                <a asp-controller="Loan" asp-action="Create" class="btn btn-primary">Issue the DVD</a>
+            </td>
         </tr>
 }
     </tbody>

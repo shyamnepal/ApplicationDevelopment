@@ -11,6 +11,8 @@ namespace dvdrentalweb.Models
         [Required]
         public String UserName { get; set; }
         [Required]
+        public string Email { get; set; }
+        [Required]
         public String UserType { get; set; }
         [Required]
         [DataType(DataType.Password)]

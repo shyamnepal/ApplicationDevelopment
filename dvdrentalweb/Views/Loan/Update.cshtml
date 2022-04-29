@@ -1,0 +1,61 @@
+﻿@model Loan
+
+<form method="post" asp-action="Update">
+	<div class="border p-3 mt-4">
+		<div class="row pb-2">
+			<h2 class="text-primary">Return DVD</h2>
+			<hr />
+		</div>
+		<div class="mb-3">
+			<label asp-for="LoanNumber"></label>
+			<input asp-for="LoanNumber" class="form-control"/>
+			<span asp-validation-for="LoanNumber" class="text-danger"></span>
+		</div>
+		@*<div asp-validation-summary="All"></div>*@
+		<div class="mb-3">
+			<label asp-for="LoanTypeNumber"></label>
+			<input asp-for="LoanTypeNumber" class="form-control"/>
+			<span asp-validation-for="LoanTypeNumber" class="text-danger"></span>
+		</div>
+		
+		<div class="mb-3">
+			<label asp-for="CopyNumber"></label>
+			<input asp-for="CopyNumber" class="form-control"/>
+			<span asp-validation-for="CopyNumber" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="MemberNumber"></label>
+			<input asp-for="MemberNumber" class="form-control"/>
+			<span asp-validation-for="MemberNumber" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="DateOut"></label>
+			<input asp-for="DateOut" class="form-control"/>
+			<span asp-validation-for="DateOut" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="DateDue"></label>
+			<input asp-for="DateDue" class="form-control"/>
+			<span asp-validation-for="DateDue" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="DateReturned"></label>
+			<input asp-for="DateReturned" class="form-control"/>
+			<span asp-validation-for="DateReturned" class="text-danger"></span>
+		</div>
+		<button type="submit" class="btn btn-primary" style="width:150px">Return</button>
+		<a asp-controller="Loan" asp-action="Index" class="btn btn-secondary" style="width:150px">
+			Back to List
+		</a>
+	</div>
+</form>
+
+<script>
+document.getElementById('e').value = new Date().toISOString().substring(0, 10);
+</script>
+
+@section Scripts{
+	@{
+		<partial name="_ValidationScriptsPartial" />
+	}
+}
