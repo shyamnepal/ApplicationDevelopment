@@ -3,19 +3,19 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace dvdrentalweb.Controllers
 {
-    public class ProducerController : Controller
+    public class StudioController : Controller
     {
         private readonly ShopContext _db;
 
-        public ProducerController(ShopContext db)
+        public StudioController(ShopContext db)
         {
             _db = db;
         }
 
         public IActionResult Index()
         {
-            var objProducerList = _db.Producers.ToList();
-            return View(objProducerList);
+            var objStudioList = _db.Studios.ToList();
+            return View(objStudioList);
         }
 
         // GET
@@ -26,11 +26,11 @@ namespace dvdrentalweb.Controllers
 
         // POST
         [HttpPost]
-        public IActionResult Create(Producer obj)
+        public IActionResult Create(Studio obj)
         {
             if (ModelState.IsValid)
             {
-                _db.Producers.Add(obj);
+                _db.Studios.Add(obj);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }

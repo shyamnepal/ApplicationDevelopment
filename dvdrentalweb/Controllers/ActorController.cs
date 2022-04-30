@@ -86,5 +86,31 @@ namespace dvdrentalweb.Controllers
 
         }
 
+        public IActionResult Index()
+        {
+            var actorList = _db.Actors.ToList();
+            return View(actorList);
+        }
+
+        // GET
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // POST
+        [HttpPost]
+        public IActionResult Create(Actor obj)
+        {
+            ModelState.Remove("DVDTitle");
+            if (ModelState.IsValid)
+            {
+                _db.Actors.Add(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
     }
 }

@@ -1,36 +1,39 @@
 ﻿using dvdrentalweb.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace dvdrentalweb.Controllers
 {
-    public class ProducerController : Controller
+    public class CastMemberController : Controller
     {
         private readonly ShopContext _db;
 
-        public ProducerController(ShopContext db)
+        public CastMemberController(ShopContext db)
         {
             _db = db;
         }
 
         public IActionResult Index()
         {
-            var objProducerList = _db.Producers.ToList();
-            return View(objProducerList);
+            var objCastMemberList = _db.CastMembers.ToList();
+            return View(objCastMemberList);
         }
 
         // GET
         public IActionResult Create()
         {
+            ViewBag.dvdTitleName = new SelectList(_db.DVDTitles, "DVDNumber", "DvdTitle");
+            ViewBag.actorName = new SelectList(_db.Actors, "ActorNumber", "ActorSurName");
             return View();
         }
 
         // POST
         [HttpPost]
-        public IActionResult Create(Producer obj)
+        public IActionResult Create(CastMember obj)
         {
             if (ModelState.IsValid)
             {
-                _db.Producers.Add(obj);
+                _db.CastMembers.Add(obj);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }

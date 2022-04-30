@@ -1,5 +1,6 @@
 ﻿using dvdrentalweb.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace dvdrentalweb.Controllers
 {
@@ -14,8 +15,36 @@ namespace dvdrentalweb.Controllers
 
         public IActionResult Index()
         {
+            var objDVDTitleList = _db.DVDTitles.ToList();
+            return View(objDVDTitleList);
+        }
+
+        // GET
+        public IActionResult Create()
+        {
+            ViewBag.producerName = new SelectList(_db.Producers, "ProducerNumber", "ProducerName");
+            ViewBag.categoryName = new SelectList(_db.DVDCategory, "CategoryNumber", "CategoryDescription");
+            ViewBag.studioName = new SelectList(_db.Studios, "StudioNumber", "StudioName");
             return View();
         }
+
+        // POST
+        [HttpPost]
+        public IActionResult Create(DVDTitle obj)
+        {
+            ModelState.Remove("StudioName");
+            ModelState.Remove("ActorFirstName");
+            ModelState.Remove("ActorSurName");
+            ModelState.Remove("ProducerName");
+            if (ModelState.IsValid)
+            {
+                _db.DVDTitles.Add(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
         public IActionResult DVDTitleList_04()
         {
             try
