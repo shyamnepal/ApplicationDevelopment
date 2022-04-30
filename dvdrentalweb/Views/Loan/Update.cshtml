@@ -6,36 +6,31 @@
 			<h2 class="text-primary">Return DVD</h2>
 			<hr />
 		</div>
-		<div class="mb-3">
-			<label asp-for="LoanNumber"></label>
-			<input asp-for="LoanNumber" class="form-control"/>
-			<span asp-validation-for="LoanNumber" class="text-danger"></span>
-		</div>
 		@*<div asp-validation-summary="All"></div>*@
 		<div class="mb-3">
 			<label asp-for="LoanTypeNumber"></label>
-			<input asp-for="LoanTypeNumber" class="form-control"/>
+			<input asp-for="LoanTypeNumber" class="form-control" disabled/>
 			<span asp-validation-for="LoanTypeNumber" class="text-danger"></span>
 		</div>
 		
 		<div class="mb-3">
 			<label asp-for="CopyNumber"></label>
-			<input asp-for="CopyNumber" class="form-control"/>
+			<input asp-for="CopyNumber" class="form-control" disabled/>
 			<span asp-validation-for="CopyNumber" class="text-danger"></span>
 		</div>
 		<div class="mb-3">
 			<label asp-for="MemberNumber"></label>
-			<input asp-for="MemberNumber" class="form-control"/>
+			<input asp-for="MemberNumber" class="form-control" disabled/>
 			<span asp-validation-for="MemberNumber" class="text-danger"></span>
 		</div>
 		<div class="mb-3">
 			<label asp-for="DateOut"></label>
-			<input asp-for="DateOut" class="form-control"/>
+			<input asp-for="DateOut" class="form-control" disabled/>
 			<span asp-validation-for="DateOut" class="text-danger"></span>
 		</div>
 		<div class="mb-3">
 			<label asp-for="DateDue"></label>
-			<input asp-for="DateDue" class="form-control"/>
+			<input asp-for="DateDue" class="form-control" disabled/>
 			<span asp-validation-for="DateDue" class="text-danger"></span>
 		</div>
 		<div class="mb-3">
@@ -49,10 +44,6 @@
 		</a>
 	</div>
 </form>
-
-<script>
-document.getElementById('e').value = new Date().toISOString().substring(0, 10);
-</script>
 
 @section Scripts{
 	@{

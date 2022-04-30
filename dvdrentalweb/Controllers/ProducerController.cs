@@ -1,11 +1,8 @@
-﻿using dvdrentalweb.Models;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace dvdrentalweb.Controllers
 {
-    
-    public class AdminController : Controller
+    public class ProducerController : Controller
     {
         private readonly ShopContext _db;
 
@@ -13,8 +10,8 @@ namespace dvdrentalweb.Controllers
         {
             _db = db;
         }
-        
-        public IActionResult Index()
+
+        public IActionResult Create()
         {
             return View();
         }
