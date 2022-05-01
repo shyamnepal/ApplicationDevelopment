@@ -60,7 +60,7 @@ namespace dvdrentalweb.Controllers
                                     on c.DVDNumber equals d.DVDNumber
                                     join e in _db.Loans
                                     on d.CopyNumber equals e.CopyNumber
-                                    where e.DateReturned != DateTime.MinValue
+                                    where e.DateReturned != null
 
                                     select new Actor
                                     {
@@ -69,7 +69,7 @@ namespace dvdrentalweb.Controllers
                                         ActorFirstName = a.ActorFirstName,
                                         DVDTitle = c.DvdTitle,
                                         CopyNumber = d.CopyNumber,
-                                        DateReturned = e.DateReturned
+                                        DateReturned = (DateTime)e.DateReturned
                                     });
                 var actorListToList = actorList_02.ToList();
                 if (SearchText != null && SearchText != "")
@@ -84,6 +84,32 @@ namespace dvdrentalweb.Controllers
                 return View();
             }
 
+        }
+
+        public IActionResult Index()
+        {
+            var actorList = _db.Actors.ToList();
+            return View(actorList);
+        }
+
+        // GET
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // POST
+        [HttpPost]
+        public IActionResult Create(Actor obj)
+        {
+            ModelState.Remove("DVDTitle");
+            if (ModelState.IsValid)
+            {
+                _db.Actors.Add(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View();
         }
 
     }

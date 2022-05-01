@@ -1,0 +1,60 @@
+﻿@model DVDTitle
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<form method="post" asp-action="Create">
+	<div class="border p-3 mt-4">
+		<div class="row pb-2">
+			<h2 class="text-primary">Add Cast Members</h2>
+			<hr />
+		</div>
+		@*<div asp-validation-summary="All"></div>*@
+		<div class="mb-3">
+			<label asp-for="DvdTitle"></label>
+			<input asp-for="DvdTitle" class="form-control"/>
+			<span asp-validation-for="DvdTitle" class="text-danger"></span>
+		</div>
+		<!-- Dropdown-->
+		<div class="mb-3">
+			<label asp-for="ProducerNumber"></label>
+			<!-- <input asp-for="ProducerNumber" class="form-control"/> -->
+			@Html.DropDownList("ProducerNumber", ViewBag.producerName as SelectList, "Select Producer", new {@class = "form-control"})
+			<span asp-validation-for="ProducerNumber" class="text-danger"></span>
+		</div>
+		<!-- Dropdown-->
+		<div class="mb-3">
+			<label asp-for="CategoryNumber"></label>
+			@Html.DropDownList("CategoryNumber", ViewBag.categoryName as SelectList, "Select Category", new {@class = "form-control"})
+			<span asp-validation-for="CategoryNumber" class="text-danger"></span>
+		</div>
+		<!-- Dropdown-->
+		<div class="mb-3">
+			<label asp-for="StudioNumber"></label>
+			@Html.DropDownList("StudioNumber", ViewBag.studioName as SelectList, "Select Studio", new {@class = "form-control"})
+			<span asp-validation-for="StudioNumber" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="DateReleased"></label>
+			<input asp-for="DateReleased" class="form-control"/>
+			<span asp-validation-for="DateReleased" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="StandardCharge"></label>
+			<input asp-for="StandardCharge" class="form-control"/>
+			<span asp-validation-for="StandardCharge" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="PenaltyCharge"></label>
+			<input asp-for="PenaltyCharge" class="form-control"/>
+			<span asp-validation-for="PenaltyCharge" class="text-danger"></span>
+		</div>
+		<button type="submit" class="btn btn-primary" style="width:150px">Submit</button>
+		<a asp-controller="DVDTitle" asp-action="Index" class="btn btn-secondary" style="width:150px">
+			Back to List
+		</a>
+	</div>
+</form>

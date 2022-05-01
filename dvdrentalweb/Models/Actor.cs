@@ -11,7 +11,7 @@ namespace dvdrentalweb.Models
         public String ActorFirstName { get; set; }
 
         [NotMapped]
-        public String DVDTitle { get; set; }
+        public string DVDTitle { get; set; }
         [NotMapped]
         public int CopyNumber { get; set; }
         [NotMapped]

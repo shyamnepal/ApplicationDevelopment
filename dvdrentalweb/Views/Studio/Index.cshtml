@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Studio>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h2>Producers</h2>
+<a asp-controller="Studio" asp-action="Create">Add Studio</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               Studio Number
+            </th>
+            <th>
+               Studio Name
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.StudioNumber
+            </td>
+            <td>
+                @item.StudioName
+            </td>
+        </tr>}
+    </tbody>
+</table>
+<a asp-controller="DVDTitle" asp-action="Index" class="btn btn-primary">Back to Add a DVD</a>

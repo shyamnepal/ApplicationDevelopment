@@ -1,0 +1,54 @@
+﻿@model IEnumerable<dvdrentalweb.Models.DVDTitle>
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h2>DVD Titles</h2>
+<a asp-controller="Producer" asp-action="Create" class="btn btn-primary">Add Producer</a>
+<a asp-controller="Studio" asp-action="Create" class="btn btn-primary">Add a Studio</a>
+<a asp-controller="Actor" asp-action="Create" class="btn btn-primary">Add a Actor</a>
+<a asp-controller="DVDTitle" asp-action="Create" class="btn btn-primary">Add a DVD</a>
+<a asp-controller="CastMember" asp-action="Create" class="btn btn-primary">Add Cast Member</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               DVD Title
+            </th>
+            <th>
+               Date Released
+            </th>
+            <th>
+               Standard Charge
+            </th>
+            <th>
+                Penalty Charge
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.DvdTitle
+            </td>
+            <td>
+                @item.DateReleased
+            </td>
+            <td>
+                @item.StandardCharge
+            </td>
+            <td>
+                @item.PenaltyCharge
+            </td>
+        </tr>}
+    </tbody>
+</table>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

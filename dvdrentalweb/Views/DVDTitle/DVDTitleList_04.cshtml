@@ -19,12 +19,16 @@
                Castlist
             </th>
             <th>
+               Studio
+            </th>
+            <th>
                Date Released
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
+
 @foreach (var item in Model) {
         <tr>
             <td>
@@ -35,6 +39,9 @@
             </td>
             <td>
                 @item.ActorFirstName @item.ActorSurname
+            </td>
+            <td>
+                @item.StudioName
             </td>
             <td>
                 @item.DateReleased

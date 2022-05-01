@@ -13,7 +13,7 @@ namespace dvdrentalweb.Models
         public int StudioNumber { get; set; }
         [ForeignKey("ProducerNumber")]
         public int ProducerNumber { get; set; }
-        public String DvdTitle { get; set; }
+        public string DvdTitle { get; set; }
         public DateTime DateReleased { get; set; }
         public double StandardCharge { get; set; }
         public double PenaltyCharge { get; set; }

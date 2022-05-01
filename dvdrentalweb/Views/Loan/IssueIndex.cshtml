@@ -1,0 +1,32 @@
+﻿@model IEnumerable<dvdrentalweb.Models.Loan>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               DVD Title
+            </th>
+            <th>
+               Copy Numbers
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.DVDTitle
+            </td>
+            <td>
+                @item.CopyNumber
+            </td>
+            <td>
+                <a asp-controller="Loan" asp-action="Create" class="btn btn-primary">Issue the DVD</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

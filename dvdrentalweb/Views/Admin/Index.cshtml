@@ -44,30 +44,24 @@
 <body>
 
 <div class="sidenav">
-  <a class="first_link" asp-controller="Actor" asp-action="ActorList_01">1. Titles of all DVDs stocked by the shop (by actor)</a>
-  <a asp-controller="Actor" asp-action="ActorList_02">2. Titles of all DVDs copies on the shelves (by actor)</a>
-  <a asp-controller="Member" asp-action="MemberList_03">3. Member's activities in last 31 days</a>
+  <a class="first_link" asp-controller="Actor" asp-action="ActorList_01">1. Titles of all DVDs stocked by the shop (Both on shelves and on Loan)</a>
+  <a asp-controller="Actor" asp-action="ActorList_02">2. Titles of all DVDs available in Shop</a>
+  <a asp-controller="Member" asp-action="MemberList_03">3. All Member's activities in last 31 days</a>
   <a asp-controller="DVDTitle" asp-action="DVDTitleList_04">4. Producer, Studio and Cast List of all DVDs</a>
   <a asp-controller="Loan" asp-action="LoanList_05">5. Copy Number and Loan details for the copy</a>
-  <a>6. Issue a DVD Copy</a>
-  <a>7. Return a DVD Copy</a>
-  <a>8. List of Members and their status</a>
-  <a>9. Enter new DVD</a>
-  <a>10. Remove old DVDs</a>
-  <a>11. DVDs currently on Loan</a>
-  <a>12. Inactive Members</a>
-  <a>13. Inactive DVD Titles</a>
+  <a asp-controller="Loan" asp-action="IssueIndex">6. Issue a DVD Copy</a>
+  <a asp-controller="Loan" asp-action="Index">7. Return a DVD Copy</a>
+  <a asp-controller="Member" asp-action="MemberList_08">8. List of Members and their status</a>
+  <a asp-controller="DVDTitle" asp-action="Index">9. Enter new DVD</a>
+  <a asp-controller="DVDCopy" asp-action="DVDCopyList_10">10. Remove old DVDs</a>
+  <a asp-controller="Loan" asp-action="LoanList_11">11. DVDs on Loan</a>
+  <a asp-controller="Loan" asp-action="LoanList_12">12. Inactive Members</a>
+  <a asp-controller="Loan" asp-action="LoanList_13">13. Inactive DVD Titles</a>
   <a>14. Inactive DVD Titles</a>
 </div>
 
 <div class="main">
-  <h2>Sidebar</h2>
-  <p>This sidebar is of full height (100%) and always shown.</p>
-  <p>Scroll down the page to see the result.</p>
-  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+  
 </div>
    
 </body>
