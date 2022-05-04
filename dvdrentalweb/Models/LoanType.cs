@@ -8,7 +8,7 @@ namespace dvdrentalweb.Models
     {
         [Key]
         public int LoanTypeNumber { get; set; }
-        public String Loantype { get; set; }
+        public string Loantype { get; set; }
         public int LoanDuration { get; set; }
         
     }

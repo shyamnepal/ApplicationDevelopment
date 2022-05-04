@@ -164,48 +164,118 @@ namespace dvdrentalweb.Controllers
         //GET
         public IActionResult Create()
         {
-           return View();
+            var copyInStock = from a in _db.Loans
+                              join b in _db.DVDCopys
+                              on a.CopyNumber equals b.CopyNumber
+                              join c in _db.DVDTitles
+                              on b.DVDNumber equals c.DVDNumber
+                              where a.DateReturned != null
+
+                              select new Loan
+                              {
+                                  CopyNumber = a.CopyNumber,
+                                  DVDNumber = b.DVDNumber,
+                                  DVDTitle = c.DvdTitle
+                              };
+
+
+            ViewBag.loanType = new SelectList(_db.LoanTypes, "LoanTypeNumber", "Loantype");
+            ViewBag.dvdTitles = new SelectList(copyInStock, "CopyNumber", "DVDTitle");
+            ViewBag.memberName = new SelectList(_db.Members, "MemberNumber", "MemberFirstName");
+            return View();
         }
 
         //POST:
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(Loan obj)
-        {
-            var loanListJoined =  from a in _db.Loans
-                                  join b in _db.Members
-                                  on a.MemberNumber equals b.MemberNumber
-                                  join c in _db.DVDCopys
-                                  on a.CopyNumber equals c.CopyNumber
-                                  join d in _db.DVDTitles
-                                  on c.DVDNumber equals d.DVDNumber
-                                  join e in _db.DVDCategory
-                                  on d.CategoryNumber equals e.CategoryNumber
-                                  join f in _db.LoanTypes
-                                  on a.LoanTypeNumber equals f.LoanTypeNumber
+        {      
 
-                                  select new Loan
-                                  {
-                                      LoanNumber = a.LoanNumber,
-                                      LoanTypeNumber = a.LoanTypeNumber,
-                                      LoanDuration = f.LoanDuration,
-                                      CopyNumber = a.CopyNumber,
-                                      MemberNumber = a.MemberNumber,
-                                      MemberDateOfBirth = b.MemberDateOfBirth,
-                                      DateOut = a.DateOut,
-                                      DateDue = a.DateDue,
-                                      DateReturned = a.DateReturned,
-                                  };
+            // Check for Age Restriction:
+            int memberNumber = obj.MemberNumber;
+            int copyNumberForAgeRestricted = obj.CopyNumber;
 
-            var today = DateTime.Now.Year;
-            var age = today - obj.MemberDateOfBirth.Year;
-            if(age >= obj.AgeRestricted)
+            // Check for number of loans
+            var memberLoanCount = _db.Loans.GroupBy(a => a.MemberNumber).Select(g => new { Key = g.Key, Count = g.Count() });
+            
+            try
             {
-                _db.Loans.Add(obj);
-                _db.SaveChanges();
-                return RedirectToAction("Index");
+                obj.DateOut = DateTime.Now;
+                int daysDue = GetLoanDuration(obj.LoanTypeNumber);
+                obj.DateDue = DateTime.Now.AddDays(daysDue);
+                int memberAge = GetAge(obj.MemberNumber);
+                int ageRestriction = GetAgeRestricted(obj.CopyNumber);
+                int totalLoanCount = GetMembersCurrentNumberOfLoans(obj.MemberNumber);
+                int allowedLoanCount = GetMemberTotalAllowedLoans(obj.MemberNumber);
+                if (memberAge > ageRestriction)
+                {
+                    if(totalLoanCount <= allowedLoanCount)
+                    {
+                        ModelState.Remove("DVDTitle");
+                        ModelState.Remove("LoanType");
+                        ModelState.Remove("MemberAddress");
+                        ModelState.Remove("MemberFirstName");
+                        ModelState.Remove("MemberLastName");
+                        if (ModelState.IsValid)
+                        {
+                            _db.Loans.Add(obj);
+                            _db.SaveChanges();
+                            return RedirectToAction("Index");
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                return View(obj);
             }
             return View(obj); 
+            
+            int GetAgeRestricted(int copyNumber)
+            {
+                int DvdNumber = _db.DVDCopys.Find(copyNumber).DVDNumber;
+                int DvdCategoryNumber = _db.DVDTitles.Find(DvdNumber).CategoryNumber;
+                var DvdCategory = _db.DVDCategory.Find(DvdCategoryNumber);
+                int ageRestricted = DvdCategory.AgeRestricted;
+                return ageRestricted;
+            }
+
+            int GetAge(int memberNumber)
+            {
+                var Member = _db.Members.Find(memberNumber);
+                var DOB = Member.MemberDateOfBirth;
+                int age = DateTime.Now.Year - DOB.Year;
+                return age;
+            }
+
+            int GetLoanDuration(int? loanTypeNumber)
+            {
+                int loanDuration = _db.LoanTypes.Find(loanTypeNumber).LoanDuration;                
+                return loanDuration;
+            }
+
+            int GetMemberTotalAllowedLoans(int memberNumber)
+            {
+                int MemberCategoryNumber = _db.Members.Find(memberNumber).MembershipCategoryNumber;
+                int MembershipCategoryTotalLoans = _db.MembershipCategories.Find(MemberCategoryNumber).MembershipCategoryTotalLoans;
+                return MembershipCategoryTotalLoans;
+            }
+
+            int GetMembersCurrentNumberOfLoans(int memberNumber)
+            {
+                var totalLoansNotReturned = (from a in _db.Loans
+                                            where a.DateReturned == null
+                                            select a).ToList();
+                var groups = totalLoansNotReturned.GroupBy(n => n.MemberNumber)
+                         .Select(n => new
+                         {
+                             number = n.Key,
+                             loanCount = n.Count()
+                         }).ToList();
+                var member = groups.Where(x => x.number == memberNumber);
+                int loanCount = member.Count();
+                return loanCount;
+            }
         }
 
         public IActionResult LoanList_07()

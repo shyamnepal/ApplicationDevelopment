@@ -1,4 +1,5 @@
 ﻿@model Loan
+
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
@@ -8,48 +9,36 @@
 <form method="post" asp-action="Create">
 	<div class="border p-3 mt-4">
 		<div class="row pb-2">
-			<h2 class="text-primary">Issue DVD</h2>
+			<h2 class="text-primary">Add Cast Members</h2>
 			<hr />
-		</div>
-		<div class="mb-3">
-			<label asp-for="LoanNumber"></label>
-			<input asp-for="LoanNumber" class="form-control"/>
-			<span asp-validation-for="LoanNumber" class="text-danger"></span>
 		</div>
 		@*<div asp-validation-summary="All"></div>*@
 		<div class="mb-3">
 			<label asp-for="LoanTypeNumber"></label>
-			<input asp-for="LoanTypeNumber" class="form-control"/>
+			@Html.DropDownList("LoanTypeNumber", new List<SelectListItem>
+
+                 {
+                    new SelectListItem{ Text="1-day", Value = "0" },
+                    new SelectListItem{ Text="3-day", Value = "1" },
+					new SelectListItem{ Text="5-day", Value = "2" }
+                 },"Select Loan Type",new {@class = "form-control"})
 			<span asp-validation-for="LoanTypeNumber" class="text-danger"></span>
-		</div>		
+		</div>
+		</div>
 		<div class="mb-3">
 			<label asp-for="CopyNumber"></label>
-			<input asp-for="CopyNumber" class="form-control"/>
-			<span asp-validation-for="CopyNumber" class="text-danger"></span>
+			<!-- <input asp-for="CopyNumber" class="form-control"/> -->
+			<!-- <span asp-validation-for="CopyNumber" class="text-danger"></span> -->
+			@Html.DropDownList("CopyNumber", ViewBag.dvdTitles as SelectList, "Select DVD", new {@class = "form-control"})
 		</div>
 		<div class="mb-3">
 			<label asp-for="MemberNumber"></label>
-			<input asp-for="MemberNumber" class="form-control"/>
-			<span asp-validation-for="MemberNumber" class="text-danger"></span>
+			<!-- <input asp-for="MemberNumber" class="form-control"/> -->
+			<!-- <span asp-validation-for="MemberNumber" class="text-danger"></span> -->
+			@Html.DropDownList("MemberNumber", ViewBag.memberName as SelectList, "Select Member First name", new {@class = "form-control"})
 		</div>
-		<div class="mb-3">
-			<label asp-for="DateOut"></label>
-			<input asp-for="DateOut" class="form-control"/>
-			<span asp-validation-for="DateOut" class="text-danger"></span>
-		</div>
-		<div class="mb-3">
-			<label asp-for="DateDue"></label>
-			<input asp-for="DateDue" class="form-control" disabled/>
-			<span asp-validation-for="DateDue" class="text-danger"></span>
-		</div>
-		<div class="mb-3">
-			<label asp-for="MemberDateOfBirth"></label>
-			<input asp-for="MemberDateOfBirth" class="form-control" disabled/>
-			<span asp-validation-for="MemberDateOfBirth" class="text-danger"></span>
-		</div>
-
-		<button type="submit" class="btn btn-primary" style="width:150px">Return</button>
-		<a asp-controller="Loan" asp-action="Index" class="btn btn-secondary" style="width:150px">
+		<button type="submit" class="btn btn-primary" style="width:150px">Submit</button>
+		<a asp-controller="DVDTitle" asp-action="Index" class="btn btn-secondary" style="width:150px">
 			Back to List
 		</a>
 	</div>

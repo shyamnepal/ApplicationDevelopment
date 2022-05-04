@@ -41,7 +41,8 @@ namespace dvdrentalweb.Models
         public int AgeRestricted { get; set; }
         [NotMapped]
         public int MembershipCategoryTotalLoans { get; set; }
-
+        [NotMapped]
+        public int CategoryNumber { get; set; }
     }
 }
 
