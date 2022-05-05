@@ -23,6 +23,7 @@ namespace dvdrentalweb.Controllers
                                     on b.DVDNumber equals c.DVDNumber
                                     join d in _db.DVDCopys
                                     on c.DVDNumber equals d.DVDNumber
+                                    orderby d.CopyNumber
 
                                     select new Actor
                                     {
@@ -61,6 +62,7 @@ namespace dvdrentalweb.Controllers
                                     join e in _db.Loans
                                     on d.CopyNumber equals e.CopyNumber
                                     where e.DateReturned != null
+                                    
 
                                     select new Actor
                                     {

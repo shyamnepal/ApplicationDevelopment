@@ -38,6 +38,10 @@
   margin-left: 160px; /* Same as the width of the sidenav */  
 }
 
+body {
+ background-image: url("/home.jpg");
+ background-color: #cccccc;
+}
 
 </style>
 </head>
@@ -57,7 +61,7 @@
   <a asp-controller="Loan" asp-action="LoanList_11">11. DVDs on Loan</a>
   <a asp-controller="Loan" asp-action="LoanList_12">12. Inactive Members</a>
   <a asp-controller="Loan" asp-action="LoanList_13">13. Inactive DVD Titles</a>
-  <a>14. Inactive DVD Titles</a>
+  <a asp-controller="Account" asp-action="Index">14. Change Password</a>
 </div>
 
 <div class="main">

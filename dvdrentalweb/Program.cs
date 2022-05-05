@@ -7,8 +7,8 @@ using dvdrentalweb.Utility;
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("ShopContextConnection"); 
 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddDefaultTokenProviders()
-    .AddEntityFrameworkStores<ShopContext>();;
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<ShopContext>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

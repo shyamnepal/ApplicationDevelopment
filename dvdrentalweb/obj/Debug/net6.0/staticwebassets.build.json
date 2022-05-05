@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wqJxCUuNph2FyAL3cib9RRfJELC6Zn1tss7uXRNX7SM=",
+  "Hash": "5uyYrqHsS9T2I61OgHm27sMMht4z0mKR+mTiIY/3Y7I=",
   "Source": "dvdrentalweb",
   "BasePath": "_content/dvdrentalweb",
   "Mode": "Default",
@@ -1120,6 +1120,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "E:\\Application_CW\\ApplicationDevelopment\\dvdrentalweb\\wwwroot\\home.jpg",
+      "SourceId": "dvdrentalweb",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Application_CW\\ApplicationDevelopment\\dvdrentalweb\\wwwroot\\",
+      "BasePath": "_content/dvdrentalweb",
+      "RelativePath": "home.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\home.jpg"
     },
     {
       "Identity": "E:\\Application_CW\\ApplicationDevelopment\\dvdrentalweb\\wwwroot\\js\\site.js",
