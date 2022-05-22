@@ -45,7 +45,7 @@ namespace dvdrentalweb.Controllers
                 if (SearchText != null && SearchText != "")
                 {
                     loanListToList = loanList_01.
-                        Where(a => a.MemberNumber == int.Parse(SearchText)).ToList();
+                        Where(a => a.CopyNumber == int.Parse(SearchText)).ToList();
                 }
                 return View(loanListToList);
             }
@@ -101,9 +101,7 @@ namespace dvdrentalweb.Controllers
                 return NotFound();
             }
             var loansFromDb = _db.Loans.Find(id);
-            //var loansFromDbFirst = _db.Categories.FirstOrDefault(u=>u.Id==id);
-            //var loansFromDbSingle = _db.Categories.SingleOrDefault(u => u.Id == id);
-
+           
             if (loansFromDb == null)
             {
                 return NotFound();
@@ -117,6 +115,7 @@ namespace dvdrentalweb.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Update(Loan obj)
         {
+            obj.DateReturned = DateTime.Now;
             ModelState.Remove("LoanType");
             ModelState.Remove("DVDTitle");
             ModelState.Remove("MemberAddress");
@@ -131,53 +130,22 @@ namespace dvdrentalweb.Controllers
             return View(obj);
         }
 
-
-        public IActionResult IssueIndex()
-        {
-            try
-            {
-                var availableDVD = (from a in _db.DVDTitles
-                                    join b in _db.DVDCopys
-                                    on a.DVDNumber equals b.DVDNumber
-
-                                    select new Loan
-                                    {
-                                        DVDTitle = a.DvdTitle,
-                                        CopyNumber = b.CopyNumber
-
-                                    }).ToList();
-
-                List<LoanType> loanTypeList = new List<LoanType>();
-                loanTypeList = (from lt in _db.LoanTypes select lt).ToList();
-                loanTypeList.Insert(0, new LoanType { LoanTypeNumber = 0, Loantype = "--Select Loan Type--" });
-                ViewBag.loanType = loanTypeList;
-
-                return View(availableDVD);
-
-            }
-            catch (Exception ex)
-            {
-                return View();
-            }
-        }
-
         //GET
         public IActionResult Create()
         {
-            var copyInStock = from a in _db.Loans
-                              join b in _db.DVDCopys
-                              on a.CopyNumber equals b.CopyNumber
-                              join c in _db.DVDTitles
-                              on b.DVDNumber equals c.DVDNumber
-                              where a.DateReturned != null
-
-                              select new Loan
-                              {
-                                  CopyNumber = a.CopyNumber,
-                                  DVDNumber = b.DVDNumber,
-                                  DVDTitle = c.DvdTitle
-                              };
-
+            var copyInStock =  from a in _db.DVDTitles
+                               join b in _db.DVDCopys
+                               on a.DVDNumber equals b.DVDNumber
+                               join e in _db.Loans
+                               on b.CopyNumber equals e.CopyNumber into f
+                               from e in f.DefaultIfEmpty()
+                               where e.DateReturned != null
+                               orderby b.CopyNumber
+                               select new Loan
+                               {
+                                   DVDTitle = a.DvdTitle,
+                                   CopyNumber = b.CopyNumber
+                               };
 
             ViewBag.loanType = new SelectList(_db.LoanTypes, "LoanTypeNumber", "Loantype");
             ViewBag.dvdTitles = new SelectList(copyInStock, "CopyNumber", "DVDTitle");
@@ -323,7 +291,9 @@ namespace dvdrentalweb.Controllers
                                    join d in _db.Members
                                    on a.MemberNumber equals d.MemberNumber
                                    join e in _db.MembershipCategories
-                                   on d.MembershipCategoryNumber equals e.MembershipCategoryNumber                                  
+                                   on d.MembershipCategoryNumber equals e.MembershipCategoryNumber 
+                                   where a.DateReturned == null
+                                   orderby a.DateOut
 
                                    select new Loan
                                    {
@@ -384,9 +354,11 @@ namespace dvdrentalweb.Controllers
                 var loanList_13 = (from a in _db.Loans
                                    join b in _db.DVDCopys
                                    on a.CopyNumber equals b.CopyNumber
+                                   into f
+                                   from b in f.DefaultIfEmpty()
                                    join c in _db.DVDTitles
                                    on b.DVDNumber equals c.DVDNumber
-                                   where a.DateOut <= DateTime.Now.AddDays(-30)
+                                   where a.DateOut <= DateTime.Now.AddDays(-31)
 
                                    select new Loan
                                    {                                       

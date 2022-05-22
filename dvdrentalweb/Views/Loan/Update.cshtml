@@ -11,8 +11,7 @@
 			<label asp-for="LoanTypeNumber"></label>
 			<input asp-for="LoanTypeNumber" class="form-control" disabled/>
 			<span asp-validation-for="LoanTypeNumber" class="text-danger"></span>
-		</div>
-		
+		</div>		
 		<div class="mb-3">
 			<label asp-for="CopyNumber"></label>
 			<input asp-for="CopyNumber" class="form-control" disabled/>
@@ -32,11 +31,6 @@
 			<label asp-for="DateDue"></label>
 			<input asp-for="DateDue" class="form-control" disabled/>
 			<span asp-validation-for="DateDue" class="text-danger"></span>
-		</div>
-		<div class="mb-3">
-			<label asp-for="DateReturned"></label>
-			<input asp-for="DateReturned" class="form-control"/>
-			<span asp-validation-for="DateReturned" class="text-danger"></span>
 		</div>
 		<button type="submit" class="btn btn-primary" style="width:150px">Return</button>
 		<a asp-controller="Loan" asp-action="Index" class="btn btn-secondary" style="width:150px">

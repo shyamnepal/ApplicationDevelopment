@@ -8,6 +8,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 
+main {
+    width: 1920px;
+    margin: 200px 400px;
+    color: white;
+}
+
 .sidenav {
   height: 100%;
   width: 200px;
@@ -22,7 +28,7 @@
 
 
 .sidenav a {
-  padding: 6px 8px 6px 16px;
+  padding: 10px 8px 6px 16px;
   text-decoration: none;
   color: var(--bs-white);
   display: block;
@@ -43,17 +49,26 @@ body {
  background-color: #cccccc;
 }
 
+.header {
+    margin-bottom: 1rem;
+    margin-left: 12px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
 </style>
 </head>
 <body>
 
 <div class="sidenav">
-  <a class="first_link" asp-controller="Actor" asp-action="ActorList_01">1. Titles of all DVDs stocked by the shop (by actor)</a>
-  <a asp-controller="Actor" asp-action="ActorList_02">2. Titles of all DVDs copies on the shelves (by actor)</a>
+  <p class="header">Click Options below</p>
+  <a class="first_link" asp-controller="Actor" asp-action="ActorList_01">1. Titles of all DVDs stocked by the shop</a>
+  <a asp-controller="Actor" asp-action="ActorList_02">2. Titles of all DVDs copies on the shelves</a>
 </div>
 
 <div class="main">
-  
+  <h1>ROPEY'S DVD RENTAL</h1>
+  <h4>For all your Movies</h4>
 </div>
    
 </body>

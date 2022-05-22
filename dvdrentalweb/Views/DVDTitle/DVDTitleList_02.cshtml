@@ -1,4 +1,4 @@
-﻿@model IEnumerable<dvdrentalweb.Models.Actor>
+﻿@model IEnumerable<dvdrentalweb.Models.DVDTitle>
 
 @{
     ViewData["Title"] = "ActorList_01";
@@ -37,16 +37,13 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @item.ActorFirstName @item.ActorSurName
+                @item.ActorFirstName @item.ActorSurname
             </td>
             <td>
-                @item.DVDTitle
+                @item.DvdTitle
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CopyNumber)
-            </td>
-            <td>
-                <a asp-controller="Loan" asp-action="Create" class="btn btn-primary">Issue the DVD</a>
             </td>
         </tr>
 }
@@ -56,3 +53,8 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}

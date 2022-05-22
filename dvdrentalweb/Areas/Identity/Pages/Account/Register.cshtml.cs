@@ -108,7 +108,6 @@ namespace dvdrentalweb.Areas.Identity.Pages.Account
             public string UserType { get; set; }
             public string Role { get; set; }            
             public IEnumerable<SelectListItem> RoleList { get; set; }
-
         }
 
 

@@ -7,49 +7,66 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+    main {
+    width: 1920px;
+    margin: 200px 400px;
+    color: white;
+    }
 
-.sidenav {
-  height: 100%;
-  width: 200px;
-  position: fixed;
-  z-index: 0;
-  top: 0;
-  left: 0;
-  background-color: var(--bs-primary);
-  overflow-x: hidden;
-  padding-top: 65px;
-}
+    .sidenav {
+      height: 100%;
+      width: 200px;
+      position: fixed;
+      z-index: 0;
+      top: 0;
+      left: 0;
+      background-color: var(--bs-primary);
+      overflow-x: hidden;
+      padding-top: 65px;
+    }
 
 
-.sidenav a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  color: var(--bs-white);
-  display: block;
-}
+    .sidenav a {
+      padding: 6px 8px 6px 16px;
+      text-decoration: none;
+      color: var(--bs-white);
+      display: block;
+    }
 
-.sidenav a:hover {
-  background-color: var(--bs-white);
-  color: var(--bs-primary);
-  cursor: pointer;
-}
+    .sidenav a:hover {
+      background-color: var(--bs-white);
+      color: var(--bs-primary);
+      cursor: pointer;
+    }
 
-.main {
-  margin-left: 160px; /* Same as the width of the sidenav */  
-}
+    .main {
+      margin-left: 160px; /* Same as the width of the sidenav */  
+    }
 
-body {
- background-image: url("/home.jpg");
- background-color: #cccccc;
-}
+    body {
+     background-image: url("/home.jpg");
+     background-color: #cccccc;
+    }
 
+    .header {
+        margin-bottom: 1rem;
+        margin-left: 12px;
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    body {
+     background-image: url("/home.jpg");
+     background-color: #cccccc;
+    }
 </style>
 </head>
 <body>
 
 <div class="sidenav">
+  <p class="header">Click Options below</p>
   <a class="first_link" asp-controller="Actor" asp-action="ActorList_01">1. Titles of all DVDs stocked by the shop (Both on shelves and on Loan)</a>
-  <a asp-controller="Actor" asp-action="ActorList_02">2. Titles of all DVDs available in Shop</a>
+  <a asp-controller="DVDTitle" asp-action="DVDTitleList_02">2. Titles of all DVDs available in Shop</a>
   <a asp-controller="Member" asp-action="MemberList_03">3. All Member's activities in last 31 days</a>
   <a asp-controller="DVDTitle" asp-action="DVDTitleList_04">4. Producer, Studio and Cast List of all DVDs</a>
   <a asp-controller="Loan" asp-action="LoanList_05">5. Copy Number and Loan details for the copy</a>
@@ -65,7 +82,8 @@ body {
 </div>
 
 <div class="main">
-  
+  <h1>ROPEY'S DVD RENTAL</h1>
+  <h4>For all your Movies</h4>
 </div>
    
 </body>

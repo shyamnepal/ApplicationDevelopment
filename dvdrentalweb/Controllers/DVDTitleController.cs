@@ -44,7 +44,37 @@ namespace dvdrentalweb.Controllers
             }
             return View();
         }
-
+        
+        public IActionResult DVDTitleList_02(string SearchText = "")
+        {
+            var dvdTitleList = (from a in _db.DVDTitles
+                               join b in _db.DVDCopys
+                               on a.DVDNumber equals b.DVDNumber
+                               join c in _db.CastMembers
+                               on b.DVDNumber equals c.DVDNumber
+                               join d in _db.Actors
+                               on c.ActorNumber equals d.ActorNumber
+                               join e in _db.Loans
+                               on b.CopyNumber equals e.CopyNumber into f
+                               from e in f.DefaultIfEmpty()
+                               where e.DateReturned != null
+                               orderby b.CopyNumber
+                               select new DVDTitle
+                               {
+                                   DvdTitle = a.DvdTitle,
+                                   CopyNumber = b.CopyNumber,
+                                   ActorFirstName = d.ActorFirstName,
+                                   ActorSurname = d.ActorSurName
+                               }).ToList();
+            var dvdTitleToList = dvdTitleList.ToList();
+            if (SearchText != null && SearchText != "")
+            {
+                dvdTitleToList = dvdTitleList.
+                    Where(a => a.ActorSurname.Contains(SearchText)).ToList();
+            }
+            return View(dvdTitleToList);
+            
+        }
 
 
         public IActionResult DVDTitleList_04()

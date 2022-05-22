@@ -31,7 +31,6 @@ namespace dvdrentalweb.Controllers
                                      on c.DVDNumber equals d.DVDNumber
                                      where a.DateOut >= DateTime.Now.AddDays(-31) 
 
-
                                      select new Member
                                      {
                                          MemberNumber = a.MemberNumber,
@@ -72,12 +71,17 @@ namespace dvdrentalweb.Controllers
                                           on a.MemberNumber equals b.MemberNumber
                                           join c in _db.MembershipCategories
                                           on a.MembershipCategoryNumber equals c.MembershipCategoryNumber
-                                          where a.DateReturned == null
-                                          group a by a.MemberFirstName into m
-                                          orderby m.Key                                          
-                                          select m;
+                                          
 
-                var memberListToList = groupByMemberNumber.ToList();
+                                          select new Member
+                                          {
+                                              MemberFirstName = a.MemberFirstName,
+                                              MemberLastNamae = a.MemberLastNamae,
+                                              TotalAllowedLoans = c.MembershipCategoryTotalLoans,
+                                              TotalLoans = b.LoanTypeNumber
+                                          };
+
+                var memberListToList = groupByMemberNumber.ToList().Distinct();
                 return View(memberListToList);
             }
             catch (Exception ex)

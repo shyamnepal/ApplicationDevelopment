@@ -24,5 +24,7 @@ namespace dvdrentalweb.Models
         public DateTime DateDue { get; set; }
         [NotMapped]
         public int TotalLoans { get; set; }
+        [NotMapped]
+        public int TotalAllowedLoans { get; set; }
     }
 }

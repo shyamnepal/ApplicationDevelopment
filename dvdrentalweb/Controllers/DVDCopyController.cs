@@ -62,9 +62,9 @@ namespace dvdrentalweb.Controllers
 
         //POST
         [HttpPost]
-        public IActionResult DeletePOST(int? CopyNumber)
+        public IActionResult DeletePOST(DVDCopy obj)
         {
-            var DVDCopyFromDb = _db.DVDCopys.Find(CopyNumber);
+            var DVDCopyFromDb = _db.DVDCopys.Find(obj.CopyNumber);
             if (DVDCopyFromDb == null)
             {
                 return NotFound();
